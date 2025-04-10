@@ -8,7 +8,7 @@ import os
 model = tf.keras.models.load_model("model/autoencoder_skin_cancer.h5", compile=False)
 
 # Set threshold (adjust this based on your experiments)
-THRESHOLD = 0.1
+THRESHOLD = 0.
 
 # Image preprocessing function
 def preprocess_image(img):
@@ -52,12 +52,10 @@ if image:
     input_image = preprocess_image(image)
     loss, is_anomaly = is_anomalous(input_image)
 
-if is_anomaly:
-    st.markdown("### ⚠️ **Potential Skin Cancer Detected**")
-else:
-    st.markdown("### ✅ **Normal / Non-Cancerous Skin**")
-
-
+    if is_anomaly:
+        st.markdown("### ✅ **Normal / Non-Cancerous Skin**")
+    else:
+        st.markdown("### ⚠️ **Potential Skin Cancer Detected**")
 
     st.write(f"🧪 Reconstruction Loss: `{loss:.4f}` (Threshold: {THRESHOLD})")
     st.info("Note: This tool is for experimental use only. Consult a dermatologist for any concerns.")
