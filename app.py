@@ -52,10 +52,11 @@ if image:
     input_image = preprocess_image(image)
     loss, is_anomaly = is_anomalous(input_image)
 
-   if is_anomaly:
-    st.markdown("### ⚠️ **Normal / Non-Cancerous Skin**")
+if is_anomaly:
+    st.markdown("### ⚠️ **Potential Skin Cancer Detected**")
 else:
-    st.markdown("### ✅ **Potential Skin Cancer Detected**")
+    st.markdown("### ✅ **Normal / Non-Cancerous Skin**")
+
 
 
     st.write(f"🧪 Reconstruction Loss: `{loss:.4f}` (Threshold: {THRESHOLD})")
