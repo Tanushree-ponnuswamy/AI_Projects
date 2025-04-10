@@ -8,7 +8,7 @@ from tensorflow.keras.preprocessing.image import ImageDataGenerator
 from tensorflow.keras.callbacks import ModelCheckpoint
 
 # Paths and parameters
-data_path = 'D:/smart_wearable/data/train/image'
+data_path = 'data/train/image'
 model_save_path = 'model/autoencoder_skin_cancer.h5'
 image_size = (128, 128)
 batch_size = 16
