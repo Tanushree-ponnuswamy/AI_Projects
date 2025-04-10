@@ -8,12 +8,7 @@ import os
 model = tf.keras.models.load_model("model/autoencoder_skin_cancer.h5", compile=False)
 
 # Set threshold (adjust this based on your experiments)
-THRESHOLD = 0.02
-
-# Image preprocessing function
-def preprocess_image(img):
-    img = img.resize((128, 128))
-    img = img.convert("RGB")
+THRESHOLD = 0.05-    img = img.convert("RGB")
     img = np.array(img) / 255.0
     return np.expand_dims(img, axis=0)
 
